@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About Vaishnavi – CS Student, Web Developer at Codomax. Know my story, education, and interests.">
+    <title>About Me | Vaishnavi – Codomax</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<header id="header">
+    <nav class="navbar" id="navbar">
+        <a href="index.html" class="logo-wrap">
+            <span class="logo-icon">⬡</span>
+            <span class="logo-text">Vaishnavi</span>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html"   class="nav-link">Home</a></li>
+            <li><a href="about.html"   class="nav-link active">About</a></li>
+            <li><a href="skills.html"  class="nav-link">Skills</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+            <button id="themeBtn" aria-label="Toggle theme">🌙</button>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+</header>
+
+
+<!-- ===== PAGE HERO BANNER ===== -->
+<section class="page-hero">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="container page-hero-inner">
+        <span class="section-tag">Who I Am</span>
+        <h1 class="page-hero-title">About <span class="highlight">Me</span></h1>
+        <p class="page-hero-sub">Passionate developer · Lifelong learner · Creative problem-solver</p>
+        <nav class="breadcrumb">
+            <a href="index.html">Home</a>
+            <span>›</span>
+            <span class="bc-active">About</span>
+        </nav>
+    </div>
+</section>
+
+
+<!-- ===== ABOUT MAIN ===== -->
+<section class="section about-section">
+    <div class="container">
+        <div class="about-grid">
+
+            <!-- LEFT: Image + info cards -->
+            <div class="about-left anim-left">
+                <div class="about-img-wrap">
+                    <svg class="about-svg" viewBox="0 0 340 360" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="aboutBg" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#0d1b2e"/>
+                                <stop offset="100%" style="stop-color:#13283f"/>
+                            </linearGradient>
+                            <linearGradient id="skinA" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#f4a97a"/>
+                                <stop offset="100%" style="stop-color:#e8895a"/>
+                            </linearGradient>
+                            <clipPath id="aboutClip"><rect width="340" height="360" rx="20"/></clipPath>
+                            <clipPath id="headClip"><ellipse cx="170" cy="175" rx="75" ry="80"/></clipPath>
+                        </defs>
+                        <rect width="340" height="360" rx="20" fill="url(#aboutBg)"/>
+                        <!-- Grid lines -->
+                        <line x1="0" y1="80" x2="340" y2="80" stroke="#00d9ff" stroke-width="0.4" opacity="0.15"/>
+                        <line x1="0" y1="200" x2="340" y2="200" stroke="#00d9ff" stroke-width="0.4" opacity="0.1"/>
+                        <line x1="80" y1="0" x2="80" y2="360" stroke="#7b2ff7" stroke-width="0.4" opacity="0.1"/>
+                        <line x1="260" y1="0" x2="260" y2="360" stroke="#7b2ff7" stroke-width="0.4" opacity="0.1"/>
+                        <!-- Corner accent -->
+                        <path d="M 0 0 L 50 0 L 0 50Z" fill="#00d9ff" opacity="0.08"/>
+                        <path d="M 340 360 L 290 360 L 340 310Z" fill="#7b2ff7" opacity="0.08"/>
+                        <!-- Body -->
+                        <ellipse cx="170" cy="310" rx="100" ry="70" fill="#0097a7" clip-path="url(#aboutClip)"/>
+                        <path d="M 145 255 L 170 290 L 195 255 Q 170 268 145 255Z" fill="#007c8a" clip-path="url(#aboutClip)"/>
+                        <!-- Neck -->
+                        <rect x="157" y="228" width="26" height="30" rx="8" fill="url(#skinA)"/>
+                        <!-- Head -->
+                        <ellipse cx="170" cy="185" rx="70" ry="76" fill="url(#skinA)"/>
+                        <!-- Hair -->
+                        <ellipse cx="170" cy="128" rx="70" ry="40" fill="#2c1654"/>
+                        <ellipse cx="115" cy="165" rx="20" ry="35" fill="#2c1654"/>
+                        <ellipse cx="225" cy="165" rx="20" ry="35" fill="#2c1654"/>
+                        <path d="M 170 178 Q 235 183 240 215 Q 228 224 220 212 Q 215 196 170 198Z" fill="#2c1654"/>
+                        <path d="M 170 178 Q 105 183 100 215 Q 112 224 120 212 Q 125 196 170 198Z" fill="#2c1654"/>
+                        <!-- Eyes -->
+                        <ellipse cx="148" cy="188" rx="10" ry="11" fill="white"/>
+                        <ellipse cx="192" cy="188" rx="10" ry="11" fill="white"/>
+                        <circle cx="149" cy="190" r="6" fill="#3d2070"/>
+                        <circle cx="193" cy="190" r="6" fill="#3d2070"/>
+                        <circle cx="150" cy="188" r="2.5" fill="black"/>
+                        <circle cx="194" cy="188" r="2.5" fill="black"/>
+                        <circle cx="152" cy="187" r="1.2" fill="white"/>
+                        <circle cx="196" cy="187" r="1.2" fill="white"/>
+                        <!-- Eyebrows -->
+                        <path d="M 137 177 Q 148 171 159 175" stroke="#2c1654" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                        <path d="M 181 175 Q 192 171 203 177" stroke="#2c1654" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                        <!-- Nose -->
+                        <path d="M 170 197 Q 163 208 166 211 Q 170 213 174 211 Q 177 208 170 197Z" fill="#d97b4f" opacity="0.45"/>
+                        <!-- Smile -->
+                        <path d="M 155 224 Q 170 237 185 224" stroke="#c0694a" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+                        <!-- Cheeks -->
+                        <ellipse cx="133" cy="212" rx="12" ry="8" fill="#f08060" opacity="0.3"/>
+                        <ellipse cx="207" cy="212" rx="12" ry="8" fill="#f08060" opacity="0.3"/>
+                        <!-- Earrings -->
+                        <circle cx="100" cy="192" r="5" fill="#00d9ff" opacity="0.8"/>
+                        <circle cx="240" cy="192" r="5" fill="#00d9ff" opacity="0.8"/>
+                        <circle cx="100" cy="192" r="9" fill="none" stroke="#00d9ff" stroke-width="1" opacity="0.4"/>
+                        <circle cx="240" cy="192" r="9" fill="none" stroke="#00d9ff" stroke-width="1" opacity="0.4"/>
+                        <!-- Particles -->
+                        <circle cx="30" cy="30" r="2" fill="#00d9ff" opacity="0.5"/>
+                        <circle cx="310" cy="50" r="3" fill="#7b2ff7" opacity="0.4"/>
+                        <circle cx="300" cy="330" r="2" fill="#00d9ff" opacity="0.4"/>
+                        <circle cx="40" cy="320" r="3" fill="#7b2ff7" opacity="0.3"/>
+                    </svg>
+                    <div class="about-experience-badge">
+                        <span class="badge-years">3+</span>
+                        <span class="badge-text">Years of<br>Learning</span>
+                    </div>
+                </div>
+
+                <div class="info-cards">
+                    <div class="info-card">
+                        <span class="info-icon">🎓</span>
+                        <div>
+                            <strong>Education</strong>
+                            <p>B.Tech – Computer Science</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <span class="info-icon">📍</span>
+                        <div>
+                            <strong>Location</strong>
+                            <p>India · Remote Available</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <span class="info-icon">💼</span>
+                        <div>
+                            <strong>Company</strong>
+                            <p>Codomax</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <span class="info-icon">🌐</span>
+                        <div>
+                            <strong>Languages</strong>
+                            <p>English, Hindi</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT: Bio -->
+            <div class="about-right anim-right">
+                <h2 class="about-heading">Who Am I?</h2>
+
+                <p class="about-text">
+                    I'm <strong>Vaishnavi</strong>, a passionate Computer Science student with a deep love for 
+                    web development and software engineering. I believe in writing clean, efficient code that 
+                    not only works — but tells a story.
+                </p>
+                <p class="about-text">
+                    Currently pursuing my <strong>B.Tech in Computer Science</strong>, I have developed a strong 
+                    foundation in full-stack web development, data structures, and algorithms. I'm constantly 
+                    exploring new technologies and building projects that solve real-world problems.
+                </p>
+                <p class="about-text">
+                    As part of <span class="highlight">Codomax</span>, I work on crafting digital solutions that 
+                    are both functional and beautiful. I thrive in collaborative environments and love turning 
+                    complex challenges into elegant, user-friendly applications.
+                </p>
+
+                <!-- Personal details -->
+                <div class="about-details">
+                    <div class="detail-row">
+                        <span class="detail-label">Name</span>
+                        <span class="detail-value">Vaishnavi</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Email</span>
+                        <span class="detail-value">vaishnavi@codomax.com</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Phone</span>
+                        <span class="detail-value">+91 98765 43210</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Status</span>
+                        <span class="detail-value available">Open to Work ✓</span>
+                    </div>
+                </div>
+
+                <a href="contact.html" class="btn-primary about-cta">
+                    <span>Get In Touch</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ===== INTERESTS / FUN FACTS ===== -->
+<section class="section interests-section">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag">More About Me</span>
+            <h2 class="section-title">Interests & <span class="highlight">Passions</span></h2>
+        </div>
+        <div class="interests-grid">
+            <div class="interest-card anim-up">
+                <span class="interest-icon">💻</span>
+                <h3>Web Development</h3>
+                <p>Building responsive, beautiful websites that deliver great user experiences.</p>
+            </div>
+            <div class="interest-card anim-up" style="--delay:0.1s">
+                <span class="interest-icon">🧩</span>
+                <h3>Problem Solving</h3>
+                <p>Tackling algorithmic challenges and competitive programming problems daily.</p>
+            </div>
+            <div class="interest-card anim-up" style="--delay:0.2s">
+                <span class="interest-icon">📚</span>
+                <h3>Continuous Learning</h3>
+                <p>Always exploring new technologies, frameworks, and best practices in tech.</p>
+            </div>
+            <div class="interest-card anim-up" style="--delay:0.3s">
+                <span class="interest-icon">🎨</span>
+                <h3>UI/UX Design</h3>
+                <p>Designing interfaces that are both visually stunning and intuitive to use.</p>
+            </div>
+            <div class="interest-card anim-up" style="--delay:0.4s">
+                <span class="interest-icon">🤝</span>
+                <h3>Open Source</h3>
+                <p>Contributing to open source projects and collaborating with developers worldwide.</p>
+            </div>
+            <div class="interest-card anim-up" style="--delay:0.5s">
+                <span class="interest-icon">🌍</span>
+                <h3>Community</h3>
+                <p>Sharing knowledge, mentoring peers, and growing together as a community.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ===== CTA STRIP ===== -->
+<section class="cta-strip">
+    <div class="container cta-strip-inner">
+        <div>
+            <h2>Want to see my skills?</h2>
+            <p>Check out the technologies and tools I work with.</p>
+        </div>
+        <div class="cta-strip-btns">
+            <a href="skills.html" class="btn-primary">View Skills →</a>
+            <a href="contact.html" class="btn-outline">Contact Me</a>
+        </div>
+    </div>
+</section>
+
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+    <div class="footer-inner">
+        <a href="index.html" class="footer-logo">
+            <span class="logo-icon">⬡</span>
+            <span>Vaishnavi</span>
+        </a>
+        <p class="footer-copy">© 2024 Vaishnavi · Made with <span class="heart">❤️</span> for <strong class="codomax-brand">Codomax</strong></p>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="skills.html">Skills</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </div>
+</footer>
+
+<button class="back-to-top" id="backToTop" title="Back to top">↑</button>
+<script src="script.js"></script>
+</body>
+</html>

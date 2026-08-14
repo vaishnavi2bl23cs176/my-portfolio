@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vaishnavi's Skills – Frontend, Backend, Tools. Web Developer at Codomax.">
+    <title>Skills | Vaishnavi – Codomax</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<header id="header">
+    <nav class="navbar" id="navbar">
+        <a href="index.html" class="logo-wrap">
+            <span class="logo-icon">⬡</span>
+            <span class="logo-text">Vaishnavi</span>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html"   class="nav-link">Home</a></li>
+            <li><a href="about.html"   class="nav-link">About</a></li>
+            <li><a href="skills.html"  class="nav-link active">Skills</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+            <button id="themeBtn" aria-label="Toggle theme">🌙</button>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+</header>
+
+
+<!-- ===== PAGE HERO BANNER ===== -->
+<section class="page-hero">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="container page-hero-inner">
+        <span class="section-tag">What I Know</span>
+        <h1 class="page-hero-title">My <span class="highlight">Skills</span></h1>
+        <p class="page-hero-sub">Technologies and tools I use to build amazing digital experiences.</p>
+        <nav class="breadcrumb">
+            <a href="index.html">Home</a>
+            <span>›</span>
+            <span class="bc-active">Skills</span>
+        </nav>
+    </div>
+</section>
+
+
+<!-- ===== SKILLS SECTION ===== -->
+<section class="section skills-section">
+    <div class="container">
+
+        <!-- Tabs -->
+        <div class="skill-tabs" id="skillTabs">
+            <button class="skill-tab active" data-tab="frontend" id="tab-frontend">⚡ Frontend</button>
+            <button class="skill-tab" data-tab="backend" id="tab-backend">🔧 Backend</button>
+            <button class="skill-tab" data-tab="tools" id="tab-tools">🛠️ Tools & More</button>
+        </div>
+
+        <!-- FRONTEND -->
+        <div class="skill-panel active" id="panel-frontend">
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <div class="skill-icon-wrap" style="--color:#e34f26"><span class="skill-emoji">🌐</span></div>
+                    <div class="skill-info">
+                        <div class="skill-header"><span class="skill-name">HTML5</span><span class="skill-percent">90%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-width="90" style="--color:#e34f26"></div></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon-wrap" style="--color:#264de4"><span class="skill-emoji">🎨</span></div>
+                    <div class="skill-info">
+                        <div class="skill-header"><span class="skill-name">CSS3 & Animations</span><span class="skill-percent">85%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-width="85" style="--color:#264de4"></div></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon-wrap" style="--color:#f7df1e"><span class="skill-emoji">⚡</span></div>
+                    <div class="skill-info">
+                        <div class="skill-header"><span class="skill-name">JavaScript (ES6+)</span><span class="skill-percent">80%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-width="80" style="--color:#f7df1e"></div></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon-wrap" style="--color:#61dafb"><span class="skill-emoji">⚛️</span></div>
+                    <div class="skill-info">
+                        <div class="skill-header"><span class="skill-name">React.js</span><span class="skill-percent">70%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-width="70" style="--color:#61dafb"></div></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon-wrap" style="--color:#38bdf8"><span class="skill-emoji">🌊</span></div>
+                    <div class="skill-info">
+                        <div class="skill-header"><span class="skill-name">Tailwind CSS</span><span class="skill-percent">75%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-width="75" style="--color:#38bdf8"></div></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon-wrap" style="--color:#00d9ff"><span class="skill-emoji">📱</span></div>
+                    <div class="skill-info">
+                        <div class="skill-header"><span class="skill-name">Responsive Design</span><span class="skill-percent">88%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-width="88" style="--color:#00d9ff"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BACKEND -->
+        <div class="skill-panel" id="panel-backend">
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <div class="skill-icon-wrap" style="--color:#3776ab"><span class="skill-emoji">🐍</span></div>
+                    <div class="skill-info">
+                        <div class="skill-header"><span class="skill-name">Python</span><span class="skill-percent">75%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-width="75" style="--color:#3776ab"></div></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon-wrap" style="--color:#8cc84b"><span class="skill-emoji">🟢</span></div>
+                    <div class="skill-info">
+                        <div class="skill-header"><span class="skill-name">Node.js</span><span class="skill-percent">65%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-width="65" style="--color:#8cc84b"></div></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon-wrap" style="--color:#005c84"><span class="skill-emoji">🗄️</span></div>
+                    <div class="skill-info">
+                        <div class="skill-header"><span class="skill-name">MySQL</span><span class="skill-percent">70%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-width="70" style="--color:#005c84"></div></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon-wrap" style="--color:#4db33d"><span class="skill-emoji">🍃</span></div>
+                    <div class="skill-info">
+                        <div class="skill-header"><span class="skill-name">MongoDB</span><span class="skill-percent">60%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-width="60" style="--color:#4db33d"></div></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon-wrap" style="--color:#ff5733"><span class="skill-emoji">🔥</span></div>
+                    <div class="skill-info">
+                        <div class="skill-header"><span class="skill-name">REST APIs</span><span class="skill-percent">72%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-width="72" style="--color:#ff5733"></div></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon-wrap" style="--color:#e10098"><span class="skill-emoji">☕</span></div>
+                    <div class="skill-info">
+                        <div class="skill-header"><span class="skill-name">Java (OOP)</span><span class="skill-percent">78%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-width="78" style="--color:#e10098"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TOOLS -->
+        <div class="skill-panel" id="panel-tools">
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <div class="skill-icon-wrap" style="--color:#f1502f"><span class="skill-emoji">🔀</span></div>
+                    <div class="skill-info">
+                        <div class="skill-header"><span class="skill-name">Git & GitHub</span><span class="skill-percent">82%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-width="82" style="--color:#f1502f"></div></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon-wrap" style="--color:#007acc"><span class="skill-emoji">🛠️</span></div>
+                    <div class="skill-info">
+                        <div class="skill-header"><span class="skill-name">VS Code</span><span class="skill-percent">92%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-width="92" style="--color:#007acc"></div></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon-wrap" style="--color:#2496ed"><span class="skill-emoji">🐳</span></div>
+                    <div class="skill-info">
+                        <div class="skill-header"><span class="skill-name">Docker (Basics)</span><span class="skill-percent">45%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-width="45" style="--color:#2496ed"></div></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon-wrap" style="--color:#ff9900"><span class="skill-emoji">🎭</span></div>
+                    <div class="skill-info">
+                        <div class="skill-header"><span class="skill-name">Figma / UI Design</span><span class="skill-percent">65%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-width="65" style="--color:#ff9900"></div></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon-wrap" style="--color:#00d9ff"><span class="skill-emoji">🧠</span></div>
+                    <div class="skill-info">
+                        <div class="skill-header"><span class="skill-name">DSA / Problem Solving</span><span class="skill-percent">80%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-width="80" style="--color:#00d9ff"></div></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon-wrap" style="--color:#7b2ff7"><span class="skill-emoji">🤝</span></div>
+                    <div class="skill-info">
+                        <div class="skill-header"><span class="skill-name">Team Collaboration</span><span class="skill-percent">88%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-width="88" style="--color:#7b2ff7"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tech logos strip -->
+        <div class="tech-strip">
+            <div class="tech-item" title="HTML5"><span>🌐</span><small>HTML5</small></div>
+            <div class="tech-item" title="CSS3"><span>🎨</span><small>CSS3</small></div>
+            <div class="tech-item" title="JavaScript"><span>⚡</span><small>JS</small></div>
+            <div class="tech-item" title="React"><span>⚛️</span><small>React</small></div>
+            <div class="tech-item" title="Python"><span>🐍</span><small>Python</small></div>
+            <div class="tech-item" title="Node.js"><span>🟢</span><small>Node</small></div>
+            <div class="tech-item" title="MySQL"><span>🗄️</span><small>MySQL</small></div>
+            <div class="tech-item" title="Git"><span>🔀</span><small>Git</small></div>
+            <div class="tech-item" title="Java"><span>☕</span><small>Java</small></div>
+            <div class="tech-item" title="MongoDB"><span>🍃</span><small>Mongo</small></div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ===== CTA STRIP ===== -->
+<section class="cta-strip">
+    <div class="container cta-strip-inner">
+        <div>
+            <h2>Ready to collaborate?</h2>
+            <p>Let's build something amazing together for Codomax and beyond!</p>
+        </div>
+        <div class="cta-strip-btns">
+            <a href="contact.html" class="btn-primary">Contact Me →</a>
+            <a href="about.html" class="btn-outline">About Me</a>
+        </div>
+    </div>
+</section>
+
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+    <div class="footer-inner">
+        <a href="index.html" class="footer-logo">
+            <span class="logo-icon">⬡</span>
+            <span>Vaishnavi</span>
+        </a>
+        <p class="footer-copy">© 2024 Vaishnavi · Made with <span class="heart">❤️</span> for <strong class="codomax-brand">Codomax</strong></p>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="skills.html">Skills</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </div>
+</footer>
+
+<button class="back-to-top" id="backToTop" title="Back to top">↑</button>
+<script src="script.js"></script>
+</body>
+</html>
