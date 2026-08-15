@@ -8,6 +8,7 @@ const navbar      = document.getElementById('navbar');
 const themeBtn    = document.getElementById('themeBtn');
 const hamburger   = document.getElementById('hamburger');
 const navLinks    = document.getElementById('navLinks');
+const navOverlay  = document.getElementById('navOverlay');
 const contactForm = document.getElementById('contactForm');
 const formSuccess = document.getElementById('formSuccess');
 const backToTop   = document.getElementById('backToTop');
@@ -55,9 +56,6 @@ window.addEventListener('scroll', () => {
     } else {
         backToTop.classList.remove('show');
     }
-
-    // Active nav link highlighting
-    highlightActiveSection();
 });
 
 backToTop.addEventListener('click', () => {
@@ -66,53 +64,97 @@ backToTop.addEventListener('click', () => {
 
 
 /* ---------- HAMBURGER MENU ---------- */
+function openMobileNav() {
+    hamburger.classList.add('open');
+    navLinks.classList.add('open');
+    if (navOverlay) {
+        navOverlay.classList.add('show');
+    }
+    document.body.style.overflow = 'hidden';
+}
+
+function closeMobileNav() {
+    hamburger.classList.remove('open');
+    navLinks.classList.remove('open');
+    if (navOverlay) {
+        navOverlay.classList.remove('show');
+    }
+    document.body.style.overflow = '';
+}
+
 hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('open');
-    navLinks.classList.toggle('open');
+    if (hamburger.classList.contains('open')) {
+        closeMobileNav();
+    } else {
+        openMobileNav();
+    }
 });
 
-// Close menu on link click
+// Close menu on overlay click
+if (navOverlay) {
+    navOverlay.addEventListener('click', closeMobileNav);
+}
+
+// Close menu on nav link click
 document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', () => {
-        hamburger.classList.remove('open');
-        navLinks.classList.remove('open');
+        closeMobileNav();
     });
 });
 
-
-/* ---------- ACTIVE NAV HIGHLIGHT ---------- */
-function highlightActiveSection() {
-    // Multi-page mode: highlight based on current filename
-    const currentFile = window.location.pathname.split('/').pop() || 'index.html';
-    const isMultiPage = !window.location.hash && document.querySelectorAll('section[id]').length <= 1;
-
-    if (isMultiPage || currentFile !== 'index.html') {
-        navLinkItems.forEach(link => {
-            link.classList.remove('active');
-            const href = link.getAttribute('href');
-            if (href === currentFile || (currentFile === '' && href === 'index.html')) {
-                link.classList.add('active');
-            }
-        });
-        return;
+// Close menu on Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeMobileNav();
     }
+});
 
-    // Single-page scroll mode (index.html with multiple sections)
-    const sections = document.querySelectorAll('section[id]');
-    let current = '';
-    sections.forEach(sec => {
-        const top = sec.offsetTop - 100;
-        if (window.scrollY >= top) {
-            current = sec.getAttribute('id');
+
+/* ---------- SCROLL-SPY: Active Nav Highlighting ---------- */
+const sections = document.querySelectorAll('section[id]');
+
+const scrollSpyObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            navLinkItems.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${id}`) {
+                    link.classList.add('active');
+                }
+            });
         }
     });
-    navLinkItems.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-            link.classList.add('active');
+}, {
+    threshold: 0.15,
+    rootMargin: `-${parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 80}px 0px -35% 0px`
+});
+
+sections.forEach(sec => scrollSpyObserver.observe(sec));
+
+
+/* ---------- SMOOTH SCROLL WITH OFFSET ---------- */
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', (e) => {
+        const href = anchor.getAttribute('href');
+        if (href === '#') return;
+
+        const target = document.querySelector(href);
+        if (target) {
+            e.preventDefault();
+            const navHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 80;
+            const targetPosition = target.offsetTop - navHeight;
+
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+
+            // Update URL hash without jumping
+            history.pushState(null, null, href);
         }
     });
-}
+});
 
 
 /* ---------- TYPEWRITER EFFECT ---------- */
@@ -268,9 +310,9 @@ revealEls.forEach(el => revealObserver.observe(el));
 
     // Contact
     const contactInfo = document.querySelector('.contact-info');
-    const contactForm = document.querySelector('.contact-form-wrap');
+    const contactFormWrap = document.querySelector('.contact-form-wrap');
     if (contactInfo) contactInfo.classList.add('reveal-left');
-    if (contactForm) contactForm.classList.add('reveal-right');
+    if (contactFormWrap) contactFormWrap.classList.add('reveal-right');
 
     // Tech strip items
     document.querySelectorAll('.tech-item').forEach((el, i) => {
@@ -282,6 +324,12 @@ revealEls.forEach(el => revealObserver.observe(el));
     document.querySelectorAll('.info-card, .contact-card').forEach((el, i) => {
         el.classList.add('reveal');
         el.style.transitionDelay = `${i * 80}ms`;
+    });
+
+    // Project cards
+    document.querySelectorAll('.project-card').forEach((el, i) => {
+        el.classList.add('reveal');
+        el.style.transitionDelay = `${i * 100}ms`;
     });
 })();
 
@@ -348,22 +396,10 @@ function showFormError(msg) {
 }
 
 
-/* ---------- SMOOTH SCROLL FOR ANCHOR LINKS ---------- */
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', (e) => {
-        const target = document.querySelector(anchor.getAttribute('href'));
-        if (target) {
-            e.preventDefault();
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-    });
-});
-
-
 /* ---------- CONSOLE EASTER EGG ---------- */
 console.log(`
 %c  ⬡ CODOMAX PORTFOLIO  
-%c  Built by Vaishnavi | 2024  
+%c  Built by Vaishnavi | 2026  
 %c  Tech: HTML5 + CSS3 + Vanilla JS  
 `, 
 'color:#00d9ff; font-size:16px; font-weight:900; background:#060d18; padding:4px 8px; border-radius:4px;',
