@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Interactive Resume Builder & Viewer – Vaishnavi | Computer Science Student & Web Developer at Codomax. Customize, preview in real-time, and download ATS-ready PDF resume.">
+    <title>Resume Builder &amp; Viewer | Vaishnavi – Codomax</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+    <header id="header">
+        <nav class="navbar" id="navbar">
+            <a href="index.html" class="logo-wrap">
+                <span class="logo-icon">⬡</span>
+                <span class="logo-text">Vaishnavi</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="index.html#education" class="nav-link">Education</a></li>
+                <li><a href="skills.html" class="nav-link">Skills</a></li>
+                <li><a href="projects.html" class="nav-link">Projects</a></li>
+                <li><a href="resume.html" class="nav-link active">Resume</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="assets/Vaishnavi_Resume.pdf" download="Vaishnavi_Resume.pdf" class="btn-nav-resume" id="navResumeBtn" title="Download Resume">
+                    <i class="fa-solid fa-file-arrow-down"></i>
+                    <span>Resume</span>
+                </a>
+                <button id="themeBtn" aria-label="Toggle theme">🌙</button>
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </nav>
+        <!-- Mobile nav overlay backdrop -->
+        <div class="nav-overlay" id="navOverlay"></div>
+    </header>
+
+
+    <!-- ===== PAGE HERO BANNER ===== -->
+    <section class="page-hero">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="container page-hero-inner">
+            <span class="section-tag">Interactive CV Generator</span>
+            <h1 class="page-hero-title">Resume <span class="highlight">Builder &amp; Viewer</span></h1>
+            <p class="page-hero-sub">Fill out the fields or auto-load Vaishnavi's verified credentials, watch the live preview update, and download your customized ATS-friendly PDF.</p>
+            <nav class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>›</span>
+                <span class="bc-active">Resume</span>
+            </nav>
+        </div>
+    </section>
+
+
+    <!-- ===== RESUME BUILDER MAIN ===== -->
+    <section class="section resume-section">
+        <div class="container resume-container">
+
+            <!-- Controls Quick Bar -->
+            <div class="resume-toolbar">
+                <div class="toolbar-left">
+                    <button type="button" class="btn-toolbar btn-primary" id="btnPrefillVaishnavi">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        <span>Load Vaishnavi's Details</span>
+                    </button>
+                    <button type="button" class="btn-toolbar btn-outline" id="btnClearForm">
+                        <i class="fa-solid fa-rotate-left"></i>
+                        <span>Reset Form</span>
+                    </button>
+                </div>
+                <div class="toolbar-right">
+                    <a href="assets/Vaishnavi_Resume.pdf" download="Vaishnavi_Resume.pdf" class="btn-toolbar btn-resume-glow" id="btnDownloadAsset">
+                        <i class="fa-solid fa-file-arrow-down"></i>
+                        <span>Download Official PDF</span>
+                    </a>
+                    <button type="button" class="btn-toolbar btn-primary" id="btnPrintResume">
+                        <i class="fa-solid fa-print"></i>
+                        <span>Print / Save as PDF</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Two-Column Layout: Form on Left, Live Preview on Right -->
+            <div class="resume-workspace">
+
+                <!-- LEFT COLUMN: FORM INPUTS -->
+                <div class="resume-form-panel">
+                    <div class="panel-header">
+                        <h2><i class="fa-solid fa-pen-to-square"></i> Fill Resume Details</h2>
+                        <p>Changes reflect in the live document on the right in real time.</p>
+                    </div>
+
+                    <form id="resumeForm" class="resume-form" onsubmit="event.preventDefault();">
+
+                        <!-- SECTION 1: Personal Details -->
+                        <div class="form-card">
+                            <h3 class="form-card-title"><i class="fa-solid fa-user"></i> 1. Personal Information</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="resName">Full Name <span class="req">*</span></label>
+                                    <input type="text" id="resName" placeholder="e.g. Vaishnavi" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="resTitle">Professional Title <span class="req">*</span></label>
+                                    <input type="text" id="resTitle" placeholder="e.g. Computer Science Student & Web Developer" required>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="resEmail">Email <span class="req">*</span></label>
+                                    <input type="email" id="resEmail" placeholder="vaishnavi@codomax.com">
+                                </div>
+                                <div class="form-group">
+                                    <label for="resPhone">Phone Number</label>
+                                    <input type="text" id="resPhone" placeholder="+91 98765 43210">
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="resLocation">Location</label>
+                                    <input type="text" id="resLocation" placeholder="India · Remote Available">
+                                </div>
+                                <div class="form-group">
+                                    <label for="resGithub">GitHub / Portfolio</label>
+                                    <input type="text" id="resGithub" placeholder="github.com/vaishnavi">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- SECTION 2: Summary -->
+                        <div class="form-card">
+                            <h3 class="form-card-title"><i class="fa-solid fa-align-left"></i> 2. Professional Summary</h3>
+                            <div class="form-group">
+                                <label for="resSummary">Summary / Objective</label>
+                                <textarea id="resSummary" rows="3" placeholder="Passionate Computer Science student and web developer skilled in building responsive user interfaces, full-stack applications, and AI integrations. Proudly part of Codomax."></textarea>
+                            </div>
+                        </div>
+
+                        <!-- SECTION 3: Education -->
+                        <div class="form-card">
+                            <h3 class="form-card-title"><i class="fa-solid fa-graduation-cap"></i> 3. Education</h3>
+
+                            <!-- Education Entry 1 -->
+                            <div class="sub-card">
+                                <h4>Degree #1 (Undergraduate)</h4>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="resEdu1Degree">Degree &amp; Major</label>
+                                        <input type="text" id="resEdu1Degree" placeholder="B.Tech in Computer Science & Engineering">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="resEdu1Inst">College / University</label>
+                                        <input type="text" id="resEdu1Inst" placeholder="Codomax Institute of Technology · VTU">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="resEdu1Year">Timeline / Graduation</label>
+                                        <input type="text" id="resEdu1Year" placeholder="2022 – 2026">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="resEdu1Grade">CGPA / Score</label>
+                                        <input type="text" id="resEdu1Grade" placeholder="CGPA: 8.9 / 10">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="resEdu1Courses">Relevant Coursework</label>
+                                    <input type="text" id="resEdu1Courses" placeholder="Data Structures & Algorithms, DBMS, Operating Systems, Computer Networks, OOP (Java), Web Engineering">
+                                </div>
+                            </div>
+
+                            <!-- Education Entry 2 -->
+                            <div class="sub-card">
+                                <h4>Degree #2 (High School / Pre-University)</h4>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="resEdu2Degree">Degree / Stream</label>
+                                        <input type="text" id="resEdu2Degree" placeholder="Higher Secondary Certificate (HSC / 12th) - Science">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="resEdu2Inst">School / College</label>
+                                        <input type="text" id="resEdu2Inst" placeholder="Vidya Mandir Pre-University College">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="resEdu2Year">Timeline</label>
+                                        <input type="text" id="resEdu2Year" placeholder="2020 – 2022">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="resEdu2Grade">Score / Distinction</label>
+                                        <input type="text" id="resEdu2Grade" placeholder="Score: 94.2% Distinction">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- SECTION 4: Skills -->
+                        <div class="form-card">
+                            <h3 class="form-card-title"><i class="fa-solid fa-code"></i> 4. Technical Skills</h3>
+                            <div class="form-group">
+                                <label for="resSkillLanguages">Programming Languages</label>
+                                <input type="text" id="resSkillLanguages" placeholder="JavaScript (ES6+), Python, HTML5, CSS3, Java, SQL, C++">
+                            </div>
+                            <div class="form-group">
+                                <label for="resSkillFrameworks">Frameworks &amp; Libraries</label>
+                                <input type="text" id="resSkillFrameworks" placeholder="React.js, Node.js, Express, Tailwind CSS, Next.js, FastAPI, OpenCV">
+                            </div>
+                            <div class="form-group">
+                                <label for="resSkillTools">Developer Tools &amp; Databases</label>
+                                <input type="text" id="resSkillTools" placeholder="Git, GitHub, VS Code, Docker, MySQL, MongoDB, PostgreSQL, Figma, Postman">
+                            </div>
+                        </div>
+
+                        <!-- SECTION 5: Projects -->
+                        <div class="form-card">
+                            <h3 class="form-card-title"><i class="fa-solid fa-laptop-code"></i> 5. Featured Projects</h3>
+
+                            <!-- Project 1 -->
+                            <div class="sub-card">
+                                <h4>Project #1</h4>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="resProj1Title">Project Title</label>
+                                        <input type="text" id="resProj1Title" placeholder="GLOW AI — Face Skin Analysis System">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="resProj1Tech">Technologies Used</label>
+                                        <input type="text" id="resProj1Tech" placeholder="Python, OpenCV, TensorFlow, React, FastAPI">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="resProj1Desc">Project Description &amp; Highlights</label>
+                                    <textarea id="resProj1Desc" rows="2" placeholder="Built a real-time computer vision pipeline analyzing facial skin health with 92% accuracy and an interactive React dashboard."></textarea>
+                                </div>
+                            </div>
+
+                            <!-- Project 2 -->
+                            <div class="sub-card">
+                                <h4>Project #2</h4>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="resProj2Title">Project Title</label>
+                                        <input type="text" id="resProj2Title" placeholder="ShopVibe — Full Stack E-Commerce Platform">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="resProj2Tech">Technologies Used</label>
+                                        <input type="text" id="resProj2Tech" placeholder="React, Node.js, Express, MongoDB, Tailwind CSS, Stripe">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="resProj2Desc">Project Description &amp; Highlights</label>
+                                    <textarea id="resProj2Desc" rows="2" placeholder="Designed full-fledged shopping store with JWT auth, product filters, persistent shopping cart, and complete payment checkout pipeline."></textarea>
+                                </div>
+                            </div>
+
+                            <!-- Project 3 -->
+                            <div class="sub-card">
+                                <h4>Project #3</h4>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="resProj3Title">Project Title</label>
+                                        <input type="text" id="resProj3Title" placeholder="DevConnect — Developer Social & Blog Hub">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="resProj3Tech">Technologies Used</label>
+                                        <input type="text" id="resProj3Tech" placeholder="Next.js, TypeScript, PostgreSQL, Prisma, Socket.io">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="resProj3Desc">Project Description &amp; Highlights</label>
+                                    <textarea id="resProj3Desc" rows="2" placeholder="Engineered a real-time community hub with markdown post publishing, syntax highlighting, threaded WebSocket discussions, and profiles."></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- SECTION 6: Experience & Certifications -->
+                        <div class="form-card">
+                            <h3 class="form-card-title"><i class="fa-solid fa-briefcase"></i> 6. Experience &amp; Certifications</h3>
+                            <div class="form-group">
+                                <label for="resExperience">Internship / Work Experience</label>
+                                <textarea id="resExperience" rows="3" placeholder="Web Developer Intern · Codomax (2023 – Present) | Developing responsive user interfaces, accessible web components, and optimized client web applications."></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="resCerts">Certifications &amp; Achievements</label>
+                                <textarea id="resCerts" rows="3" placeholder="• Meta Frontend Developer Specialization (Coursera)
+• Python for Data Science & AI (IBM)
+• Finalist in State Inter-College Hackathon 2023
+• 200+ Solved DSA problems on LeetCode / CodeChef"></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Bottom Action Buttons in Form -->
+                        <div class="form-bottom-actions">
+                            <button type="button" class="btn-primary form-download-btn" id="btnBottomDownload">
+                                <i class="fa-solid fa-file-arrow-down"></i>
+                                <span>Download Filled Resume (PDF)</span>
+                            </button>
+                            <button type="button" class="btn-outline" id="btnBottomPrint">
+                                <i class="fa-solid fa-print"></i>
+                                <span>Print / Save as PDF</span>
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+
+
+                <!-- RIGHT COLUMN: LIVE RESUME PREVIEW SHEET -->
+                <div class="resume-preview-panel">
+                    <div class="preview-sticky-wrap">
+
+                        <div class="preview-header-bar">
+                            <div class="preview-title-tag">
+                                <span class="pulse-dot"></span>
+                                <span>Live ATS Document Preview</span>
+                            </div>
+                            <div class="preview-actions">
+                                <button type="button" class="btn-preview-action" id="btnQuickPrint" title="Print or Save as PDF">
+                                    <i class="fa-solid fa-print"></i> Print / PDF
+                                </button>
+                                <a href="assets/Vaishnavi_Resume.pdf" download="Vaishnavi_Resume.pdf" class="btn-preview-action primary" id="btnQuickDownload" title="Download PDF Asset">
+                                    <i class="fa-solid fa-download"></i> Download
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Printable & Live-bound Resume Sheet -->
+                        <div class="resume-sheet" id="printableResumeSheet">
+
+                            <!-- Header -->
+                            <header class="sheet-header">
+                                <h1 class="sheet-name" id="viewName">VAISHNAVI</h1>
+                                <p class="sheet-title" id="viewTitle">Computer Science Student &amp; Web Developer</p>
+
+                                <div class="sheet-contact-row">
+                                    <span id="viewEmail"><i class="fa-solid fa-envelope"></i> vaishnavi@codomax.com</span>
+                                    <span class="sep">•</span>
+                                    <span id="viewPhone"><i class="fa-solid fa-phone"></i> +91 98765 43210</span>
+                                    <span class="sep">•</span>
+                                    <span id="viewLocation"><i class="fa-solid fa-location-dot"></i> India</span>
+                                    <span class="sep">•</span>
+                                    <span id="viewGithub"><i class="fa-brands fa-github"></i> github.com/vaishnavi</span>
+                                </div>
+                            </header>
+
+                            <!-- Summary Section -->
+                            <section class="sheet-section" id="secSummary">
+                                <h2 class="sheet-heading">Professional Summary</h2>
+                                <p class="sheet-text" id="viewSummary">
+                                    Passionate Computer Science student and web developer skilled in building responsive user interfaces, 
+                                    full-stack applications, and AI integrations. Experienced in modern JavaScript frameworks, Python data pipelines, 
+                                    and clean code architecture. Proudly part of Codomax.
+                                </p>
+                            </section>
+
+                            <!-- Education Section -->
+                            <section class="sheet-section" id="secEducation">
+                                <h2 class="sheet-heading">Education</h2>
+
+                                <div class="sheet-entry" id="entryEdu1">
+                                    <div class="sheet-entry-header">
+                                        <strong class="entry-degree" id="viewEdu1Degree">B.Tech in Computer Science &amp; Engineering</strong>
+                                        <span class="entry-year" id="viewEdu1Year">2022 – 2026</span>
+                                    </div>
+                                    <div class="sheet-entry-sub">
+                                        <span class="entry-inst" id="viewEdu1Inst">Codomax Institute of Technology · VTU</span>
+                                        <span class="entry-grade" id="viewEdu1Grade">CGPA: 8.9 / 10</span>
+                                    </div>
+                                    <p class="sheet-entry-detail" id="viewEdu1Courses">
+                                        <em>Relevant Coursework:</em> Data Structures &amp; Algorithms, DBMS, Operating Systems, Computer Networks, OOP (Java), Web Engineering
+                                    </p>
+                                </div>
+
+                                <div class="sheet-entry" id="entryEdu2">
+                                    <div class="sheet-entry-header">
+                                        <strong class="entry-degree" id="viewEdu2Degree">Higher Secondary Certificate (HSC / 12th) - Science</strong>
+                                        <span class="entry-year" id="viewEdu2Year">2020 – 2022</span>
+                                    </div>
+                                    <div class="sheet-entry-sub">
+                                        <span class="entry-inst" id="viewEdu2Inst">Vidya Mandir Pre-University College</span>
+                                        <span class="entry-grade" id="viewEdu2Grade">Score: 94.2% Distinction</span>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- Technical Skills Section -->
+                            <section class="sheet-section" id="secSkills">
+                                <h2 class="sheet-heading">Technical Skills</h2>
+                                <div class="sheet-skill-group">
+                                    <strong>Languages:</strong>
+                                    <span id="viewSkillLanguages">JavaScript (ES6+), Python, HTML5, CSS3, Java, SQL, C++</span>
+                                </div>
+                                <div class="sheet-skill-group">
+                                    <strong>Frameworks &amp; Libraries:</strong>
+                                    <span id="viewSkillFrameworks">React.js, Node.js, Express, Tailwind CSS, Next.js, FastAPI, OpenCV</span>
+                                </div>
+                                <div class="sheet-skill-group">
+                                    <strong>Developer Tools &amp; DB:</strong>
+                                    <span id="viewSkillTools">Git, GitHub, VS Code, Docker, MySQL, MongoDB, PostgreSQL, Figma, Postman</span>
+                                </div>
+                            </section>
+
+                            <!-- Projects Section -->
+                            <section class="sheet-section" id="secProjects">
+                                <h2 class="sheet-heading">Featured Projects</h2>
+
+                                <!-- Project 1 -->
+                                <div class="sheet-entry" id="entryProj1">
+                                    <div class="sheet-entry-header">
+                                        <strong class="entry-degree" id="viewProj1Title">GLOW AI — Face Skin Analysis System</strong>
+                                        <span class="entry-tech" id="viewProj1Tech">Python, OpenCV, TensorFlow, React, FastAPI</span>
+                                    </div>
+                                    <p class="sheet-entry-desc" id="viewProj1Desc">
+                                        • Built a real-time computer vision pipeline analyzing facial skin health with 92% accuracy and an interactive React dashboard.
+                                    </p>
+                                </div>
+
+                                <!-- Project 2 -->
+                                <div class="sheet-entry" id="entryProj2">
+                                    <div class="sheet-entry-header">
+                                        <strong class="entry-degree" id="viewProj2Title">ShopVibe — Full Stack E-Commerce Platform</strong>
+                                        <span class="entry-tech" id="viewProj2Tech">React, Node.js, Express, MongoDB, Tailwind CSS, Stripe</span>
+                                    </div>
+                                    <p class="sheet-entry-desc" id="viewProj2Desc">
+                                        • Designed full-fledged shopping store with JWT auth, product filters, persistent shopping cart, and complete payment checkout pipeline.
+                                    </p>
+                                </div>
+
+                                <!-- Project 3 -->
+                                <div class="sheet-entry" id="entryProj3">
+                                    <div class="sheet-entry-header">
+                                        <strong class="entry-degree" id="viewProj3Title">DevConnect — Developer Social &amp; Blog Hub</strong>
+                                        <span class="entry-tech" id="viewProj3Tech">Next.js, TypeScript, PostgreSQL, Prisma, Socket.io</span>
+                                    </div>
+                                    <p class="sheet-entry-desc" id="viewProj3Desc">
+                                        • Engineered a real-time community hub with markdown post publishing, syntax highlighting, threaded WebSocket discussions, and profiles.
+                                    </p>
+                                </div>
+                            </section>
+
+                            <!-- Experience & Certifications -->
+                            <section class="sheet-section" id="secExp">
+                                <h2 class="sheet-heading">Experience &amp; Achievements</h2>
+                                <div class="sheet-entry">
+                                    <div class="sheet-entry-desc" id="viewExperience" style="white-space: pre-line;">
+                                        <strong>Web Developer Intern · Codomax (2023 – Present)</strong>
+                                        • Developing responsive user interfaces, accessible web components, and optimized client web applications.
+                                    </div>
+                                </div>
+                                <div class="sheet-entry" style="margin-top: 10px;">
+                                    <div class="sheet-entry-desc" id="viewCerts" style="white-space: pre-line;">
+                                        • Meta Frontend Developer Specialization (Coursera)
+                                        • Python for Data Science & AI (IBM)
+                                        • Finalist in State Inter-College Hackathon 2023
+                                        • 200+ Solved DSA problems on LeetCode / CodeChef
+                                    </div>
+                                </div>
+                            </section>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <a href="index.html" class="footer-logo">
+                <span class="logo-icon">⬡</span>
+                <span>Vaishnavi</span>
+            </a>
+            <p class="footer-copy">© 2026 Vaishnavi · Made with <span class="heart">❤️</span> for <strong
+                    class="codomax-brand">Codomax</strong></p>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="index.html#education">Education</a>
+                <a href="skills.html">Skills</a>
+                <a href="projects.html">Projects</a>
+                <a href="resume.html">Resume</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div class="toast-notification" id="toastNotification" role="status" aria-live="polite">
+        <i class="fa-solid fa-circle-check toast-icon"></i>
+        <div class="toast-content">
+            <strong id="toastTitle">Download Started</strong>
+            <p id="toastMessage">Vaishnavi's Resume PDF is downloading...</p>
+        </div>
+    </div>
+
+    <button class="back-to-top" id="backToTop" title="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
